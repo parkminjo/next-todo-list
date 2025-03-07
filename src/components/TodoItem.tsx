@@ -21,7 +21,7 @@ const TodoItem = ({ todo }: { todo: Todos }) => {
   };
 
   return (
-    <div className="flex justify-between px-5 items-center w-[390px] h-[60px] border-solid border-2 border-gray-300">
+    <div className="flex justify-between px-5 rounded-lg items-center w-[390px] h-[60px] border-solid border-2 border-gray-300">
       <h1>{todo.title}</h1>
       <Button
         color="blue"

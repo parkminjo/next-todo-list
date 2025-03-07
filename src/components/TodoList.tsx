@@ -9,7 +9,7 @@ const TodoList = async () => {
   const todos = await response.json();
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       {todos.map((todo: Todos) => {
         return <TodoItem key={todo.id} todo={todo} />;
       })}

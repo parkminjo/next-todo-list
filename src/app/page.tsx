@@ -3,7 +3,7 @@ import TodoList from "@/components/TodoList";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen flex flex-col items-center pt-10">
+    <div className="w-full h-screen flex flex-col items-center pt-10 gap-4">
       <TodoForm />
       <TodoList />
     </div>
