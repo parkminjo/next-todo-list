@@ -1,8 +1,13 @@
+"use client";
+
 import Button from "./ui/Button";
 import { Todos } from "./types";
 import { JSON_URL } from "@/constants/constants";
+import { useState } from "react";
 
 const TodoItem = ({ todo }: { todo: Todos }) => {
+  const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
+
   const handleCompleteState = async () => {
     await fetch(`${JSON_URL}/${todo.id}`, {
       method: "PATCH",
@@ -11,6 +16,8 @@ const TodoItem = ({ todo }: { todo: Todos }) => {
       },
       body: JSON.stringify({ isCompleted: !todo.isCompleted }),
     });
+
+    setIsCompleted((prev) => !prev);
   };
 
   return (
@@ -22,7 +29,7 @@ const TodoItem = ({ todo }: { todo: Todos }) => {
         type="button"
         onClick={handleCompleteState}
       >
-        {todo.isCompleted ? "완료 취소" : "완료"}
+        {isCompleted ? "취소" : "완료"}
       </Button>
     </div>
   );
