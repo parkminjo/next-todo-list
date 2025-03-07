@@ -10,6 +10,7 @@ export const Button = ({
   children,
   color = "gray",
   size = "medium",
+  onClick,
   type,
 }: ButtonProps) => {
   const getColorStyles = (color: string) => {
@@ -38,6 +39,7 @@ export const Button = ({
     <button
       className={`rounded-lg ${getColorStyles(color)} ${getSizeStyles(size)} `}
       type={type}
+      onClick={onClick}
     >
       {children}
     </button>
