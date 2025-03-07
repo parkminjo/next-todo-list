@@ -1,6 +1,8 @@
+import { JSON_URL } from "@/constants/constants";
+
 export const addTodo = async (newTodo) => {
   try {
-    await fetch("http://localhost:4000/todos", {
+    await fetch(JSON_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
