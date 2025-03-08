@@ -16,11 +16,11 @@ export const Button = ({
   const getColorStyles = (color: string) => {
     switch (color) {
       case "gray":
-        return "bg-gray-400 text-white hover:bg-gray-500";
+        return "bg-gray-400 text-white duration-200 ease-in hover:bg-gray-500";
       case "red":
-        return "bg-red-500 text-white hover:bg-red-600";
+        return "bg-red-500 text-white duration-200 ease-in hover:bg-red-600";
       case "blue":
-        return "bg-blue-400 text-white hover:bg-blue-500";
+        return "bg-blue-400 text-white duration-200 ease-in hover:bg-blue-500";
     }
   };
 
