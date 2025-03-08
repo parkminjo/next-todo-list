@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { fetchData } from "@/api/todos";
-import TodoItem from "./TodoItem";
-import { Todos } from "./types";
-import { useEffect, useState } from "react";
+import { fetchData } from '@/api/todos';
+import TodoItem from './TodoItem';
+import { Todos } from '../types';
+import { useEffect, useState } from 'react';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { ChangeEvent, FormEvent, useState } from "react";
-import { InputValue } from "./types";
-import Button from "./ui/Button";
-import { addTodo } from "../api/todos";
+import { addTodo } from '@/api/todos';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { InputValue } from '../types';
+import Button from '../ui/Button';
 
 const TodoForm = () => {
   const [inputValue, setInputValue] = useState<InputValue>({
-    title: "",
+    title: '',
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,8 +17,8 @@ const TodoForm = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (inputValue.title === "") {
-      alert("할 일을 입력해주세요");
+    if (inputValue.title === '') {
+      alert('할 일을 입력해주세요');
       return;
     }
 
@@ -29,7 +29,7 @@ const TodoForm = () => {
     });
 
     setInputValue({
-      title: "",
+      title: '',
     });
   };
 

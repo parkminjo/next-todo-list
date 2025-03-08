@@ -1,14 +1,15 @@
-"use client";
+'use client';
 
-import { fetchDetailData } from "@/api/todos";
-import { Todos } from "@/components/types";
-import { Typography } from "@/components/ui/Typography";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { fetchDetailData } from '@/api/todos';
+import { Todos } from '@/components/types';
+import { Text } from '@/components/ui/Text';
+
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const TodoDetail = () => {
   const params = useParams();
-  const todoId = typeof params.id === "string" ? params.id : undefined;
+  const todoId = typeof params.id === 'string' ? params.id : undefined;
 
   const [todo, setTodo] = useState<Todos | null>();
 
@@ -25,7 +26,7 @@ const TodoDetail = () => {
 
   return (
     <div>
-      <Typography>{todo?.title}</Typography>
+      <Text>{todo?.title}</Text>
     </div>
   );
 };
