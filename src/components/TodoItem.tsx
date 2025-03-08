@@ -27,7 +27,7 @@ const TodoItem = ({ todo }: { todo: Todos }) => {
 
   return (
     <Link href={`/detail/${todo.id}`}>
-      <div className="flex justify-between px-5 rounded-lg items-center w-[390px] h-[60px] border-solid border-2 border-gray-300">
+      <div className="flex justify-between px-5 rounded-lg items-center w-[390px] h-[60px] border-solid border-2 border-gray-300 hover:bg-gray-300">
         <Typography variant="p">{todo.title}</Typography>
         <div className="flex gap-1">
           <Button color="blue" size="small" onClick={handleCompleteState}>

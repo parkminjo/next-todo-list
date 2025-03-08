@@ -17,7 +17,6 @@ const TodoDetail = () => {
 
     const fetchDetailTodo = async (todoId: string) => {
       const data = await fetchDetailData(todoId);
-      console.log(data);
       setTodo(data);
     };
 
