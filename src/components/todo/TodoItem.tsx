@@ -3,7 +3,6 @@
 import { JSON_URL } from '@/constants/constants';
 import { useState } from 'react';
 import { updateCompletedState } from '@/api/todos';
-import Link from 'next/link';
 import { Text } from '../ui/Text';
 import Button from '../ui/Button';
 import { Todos } from '../types';
