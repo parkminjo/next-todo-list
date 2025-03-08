@@ -1,12 +1,21 @@
-import { JSON_URL } from "@/constants/constants";
+"use client";
+
+import { fetchData } from "@/api/todos";
 import TodoItem from "./TodoItem";
 import { Todos } from "./types";
+import { useEffect, useState } from "react";
 
-const TodoList = async () => {
-  const response = await fetch(JSON_URL, {
-    cache: "no-cache",
-  });
-  const todos = await response.json();
+const TodoList = () => {
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const todos = await fetchData();
+      setTodos(todos);
+    };
+
+    fetchTodos();
+  }, [todos]);
 
   return (
     <div className="flex flex-col gap-2">
