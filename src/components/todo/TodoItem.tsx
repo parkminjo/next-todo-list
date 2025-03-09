@@ -1,11 +1,10 @@
 'use client';
 
-import { JSON_URL } from '@/constants/constants';
-import { useState } from 'react';
 import { updateCompletedState } from '@/api/todos';
-import { Text } from '../ui/Text';
-import Button from '../ui/Button';
+import { useState } from 'react';
 import { Todos } from '../types';
+import Button from '../ui/Button';
+import { Text } from '../ui/Text';
 
 const TodoItem = ({ todo }: { todo: Todos }) => {
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
@@ -25,7 +24,7 @@ const TodoItem = ({ todo }: { todo: Todos }) => {
   const handleDeleteTodo = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
 
-    await fetch(`${JSON_URL}/${todo.id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_JSON_URL}/${todo.id}`, {
       method: 'DELETE',
     });
   };

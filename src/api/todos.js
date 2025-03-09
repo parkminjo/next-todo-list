@@ -1,8 +1,6 @@
-import { JSON_URL } from "@/constants/constants";
-
 export const fetchData = async () => {
   try {
-    const response = await fetch(JSON_URL);
+    const response = await fetch(process.env.NEXT_PUBLIC_JSON_URL);
     const todos = await response.json();
 
     return todos;
@@ -13,7 +11,9 @@ export const fetchData = async () => {
 
 export const fetchDetailData = async (todoId) => {
   try {
-    const response = await fetch(`${JSON_URL}/${todoId}`);
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_JSON_URL}/${todoId}`
+    );
     const todos = await response.json();
 
     return todos;
@@ -24,10 +24,10 @@ export const fetchDetailData = async (todoId) => {
 
 export const addTodo = async (newTodo) => {
   try {
-    await fetch(JSON_URL, {
-      method: "POST",
+    await fetch(process.env.NEXT_PUBLIC_JSON_URL, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(newTodo),
     });
@@ -38,10 +38,10 @@ export const addTodo = async (newTodo) => {
 
 export const updateCompletedState = async ({ todoId, isCompleted }) => {
   try {
-    await fetch(`${JSON_URL}/${todoId}`, {
-      method: "PATCH",
+    await fetch(`${process.env.NEXT_PUBLIC_JSON_URL}/${todoId}`, {
+      method: 'PATCH',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ isCompleted: !isCompleted }),
     });
