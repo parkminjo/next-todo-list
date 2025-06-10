@@ -2,12 +2,20 @@
 
 import TodoItem from '@/features/todo/components/todo-item';
 import { useTodoListQuery } from '@/features/todo/hooks/use-todo-list-quey';
+import { Skeleton } from '@/shared/ui/skeleton';
 
 const TodoList = () => {
   const { data: todoList, isPending, isError, error } = useTodoListQuery();
 
   if (isPending) {
-    return <div>로딩 중</div>;
+    return (
+      <div className='flex flex-col gap-2'>
+        <h2 className='text-sm'>미완료</h2>
+        <Skeleton className='h-[40px] w-full' />
+        <Skeleton className='h-[40px] w-full' />
+        <Skeleton className='h-[40px] w-full' />
+      </div>
+    );
   }
 
   if (isError) {
