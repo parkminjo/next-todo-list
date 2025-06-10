@@ -1,7 +1,14 @@
+import localFont from 'next/font/local';
 import './globals.css';
 import TanstackQueryProviders from '@/provider/tanstack-query-provider';
 
 import type { Metadata } from 'next';
+
+const pretendard = localFont({
+  src: '../../public/fonts/PretendardVariable.woff2',
+  variable: '--font-pretendard',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body>
+    <html lang='ko'>
+      <body className={pretendard.className}>
         <TanstackQueryProviders>{children}</TanstackQueryProviders>
       </body>
     </html>
