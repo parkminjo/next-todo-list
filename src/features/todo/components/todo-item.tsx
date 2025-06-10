@@ -24,7 +24,12 @@ const TodoItem = ({ todo }: Props) => {
   return (
     <li className='flex items-center justify-between rounded-lg px-4 py-2 hover:bg-gray-200'>
       <div className='flex gap-2'>
-        <input type='checkbox' checked={todo.isDone} onChange={handleUpdate} />
+        <input
+          type='checkbox'
+          checked={todo.isDone}
+          onChange={handleUpdate}
+          className='cursor-pointer'
+        />
         <h3>{todo.content}</h3>
       </div>
       <div className='flex gap-3'>
