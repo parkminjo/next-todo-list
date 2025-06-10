@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { addTodo } from '@/features/todo/api/client/addTodo';
+import { addTodo } from '@/features/todo/api/client/add-todo';
 
 const TodoInput = () => {
   const [content, setContent] = useState('');

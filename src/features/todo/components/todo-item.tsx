@@ -2,8 +2,8 @@
 
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { FaPencil } from 'react-icons/fa6';
-import { deleteTodo } from '@/features/todo/api/client/deleteTodo';
-import { updateTodo } from '@/features/todo/api/client/updateTodo';
+import { deleteTodo } from '@/features/todo/api/client/delete-todo';
+import { updateTodo } from '@/features/todo/api/client/update-todo';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
