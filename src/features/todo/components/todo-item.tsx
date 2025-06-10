@@ -4,6 +4,7 @@ import { FaRegTrashCan } from 'react-icons/fa6';
 import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
 import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
 import type { Todo } from '@/features/todo/types/todo.type';
+import { Checkbox } from '@/shared/ui/checkbox';
 
 interface Props {
   todo: Todo;
@@ -23,13 +24,8 @@ const TodoItem = ({ todo }: Props) => {
 
   return (
     <li className='flex items-center justify-between rounded-lg px-4 py-2 hover:bg-gray-200'>
-      <div className='flex gap-2'>
-        <input
-          type='checkbox'
-          checked={todo.isDone}
-          onChange={handleUpdate}
-          className='cursor-pointer'
-        />
+      <div className='flex items-center gap-3'>
+        <Checkbox checked={todo.isDone} onCheckedChange={handleUpdate} />
         <h3>{todo.content}</h3>
       </div>
       <div className='flex gap-3'>
