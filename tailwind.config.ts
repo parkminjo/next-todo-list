@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         'primary-blue': '#367BFB',
         'gray-100': '#F7F7F7',
+        'gray-200': '#F3F3F3',
       },
       fontFamily: {
         pretendard: ['var(--font-pretendard)', 'sans-serif'],
