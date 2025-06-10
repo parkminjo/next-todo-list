@@ -1,6 +1,9 @@
-import localFont from 'next/font/local';
 import './globals.css';
+import localFont from 'next/font/local';
 import TanstackQueryProviders from '@/provider/tanstack-query-provider';
+import LayoutWrapper from '@/shared/layout/layout-wrapper';
+import Header from '@/shared/layout/header';
+import Footer from '@/shared/layout/footer';
 
 import type { Metadata } from 'next';
 
@@ -23,7 +26,13 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className={pretendard.className}>
-        <TanstackQueryProviders>{children}</TanstackQueryProviders>
+        <TanstackQueryProviders>
+          <LayoutWrapper>
+            <Header />
+            <main className='px-4'>{children}</main>
+            <Footer />
+          </LayoutWrapper>
+        </TanstackQueryProviders>
       </body>
     </html>
   );
