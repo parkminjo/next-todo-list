@@ -1,5 +1,6 @@
 import { ENV } from '@/shared/constants/env';
 import { METHOD } from '@/shared/constants/http-method';
+import { ERROR_MESSAGE } from '@/shared/constants/error-message';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 export const addTodo = async (todo: Omit<Todo, 'id'>) => {
@@ -10,7 +11,8 @@ export const addTodo = async (todo: Omit<Todo, 'id'>) => {
     },
     body: JSON.stringify(todo),
   });
+
   if (!response.ok) {
-    throw new Error('todo를 추가는데 실패하였습니다.');
+    throw new Error(ERROR_MESSAGE.TODO.ADD_FAILED);
   }
 };

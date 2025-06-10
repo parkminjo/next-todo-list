@@ -1,5 +1,6 @@
 import { ENV } from '@/shared/constants/env';
 import { METHOD } from '@/shared/constants/http-method';
+import { ERROR_MESSAGE } from '@/shared/constants/error-message';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
@@ -15,7 +16,8 @@ export const updateTodo = async ({ todoId, isDone }: Props) => {
     },
     body: JSON.stringify({ isDone }),
   });
+
   if (!response.ok) {
-    throw new Error('todo를 수정하는데 실패하였습니다.');
+    throw new Error(ERROR_MESSAGE.TODO.UPDATE_FAILED);
   }
 };
