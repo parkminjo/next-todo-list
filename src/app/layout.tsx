@@ -1,6 +1,7 @@
 import './globals.css';
 import localFont from 'next/font/local';
 import TanstackQueryProviders from '@/provider/tanstack-query-provider';
+import ToastProvider from '@/provider/toast-provider';
 import LayoutWrapper from '@/shared/layout/layout-wrapper';
 import Header from '@/shared/layout/header';
 import Footer from '@/shared/layout/footer';
@@ -27,11 +28,13 @@ export default function RootLayout({
     <html lang='ko'>
       <body className={pretendard.className}>
         <TanstackQueryProviders>
-          <LayoutWrapper>
-            <Header />
-            <main className='flex-1 px-4 py-2'>{children}</main>
-            <Footer />
-          </LayoutWrapper>
+          <ToastProvider>
+            <LayoutWrapper>
+              <Header />
+              <main className='flex-1 px-4 py-2'>{children}</main>
+              <Footer />
+            </LayoutWrapper>
+          </ToastProvider>
         </TanstackQueryProviders>
       </body>
     </html>
