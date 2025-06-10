@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         'primary-blue': '#367BFB',
+        'gray-100': '#F7F7F7',
       },
       fontFamily: {
         pretendard: ['var(--font-pretendard)', 'sans-serif'],

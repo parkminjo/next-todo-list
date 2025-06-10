@@ -29,7 +29,7 @@ export default function RootLayout({
         <TanstackQueryProviders>
           <LayoutWrapper>
             <Header />
-            <main className='px-4'>{children}</main>
+            <main className='px-4 py-2'>{children}</main>
             <Footer />
           </LayoutWrapper>
         </TanstackQueryProviders>
