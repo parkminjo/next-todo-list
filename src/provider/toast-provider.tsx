@@ -8,7 +8,7 @@ const ToastProvider = ({ children }: Props) => {
   return (
     <>
       {children}
-      <ToastContainer autoClose={1500} closeOnClick pauseOnHover />
+      <ToastContainer autoClose={1500} limit={1} closeOnClick pauseOnHover />
     </>
   );
 };

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useAddTodoMutation } from '../hooks/use-add-todo-mutation';
+import { toast } from 'react-toastify';
+import { INFO_MESSAGE } from '@/shared/constants/info-message';
 
 const TodoInput = () => {
   const [content, setContent] = useState('');
@@ -13,6 +15,14 @@ const TodoInput = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (content === '') {
+      toast.info(INFO_MESSAGE.TODO.EMPTY_INPUT, {
+        toastId: 'EMPTY_INPUT',
+      });
+      return;
+    }
+
     addTodoMutate({
       content,
       date: new Date().getTime(),
