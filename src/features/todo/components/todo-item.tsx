@@ -14,10 +14,10 @@ const TodoItem = ({ todo }: Props) => {
         <h3>{todo.content}</h3>
       </div>
       <div className='flex gap-3'>
-        <button className='text-gray-500'>
+        <button aria-label='수정' className='text-gray-500'>
           <FaPencil />
         </button>
-        <button className='text-gray-500'>
+        <button aria-label='삭제' className='text-gray-500'>
           <FaRegTrashCan />
         </button>
       </div>
