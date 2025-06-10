@@ -1,11 +1,19 @@
+'use client';
+
 import TodoItem from '@/features/todo/components/todo-item';
-import type { Todo } from '@/features/todo/types/todo.type';
+import { useTodoListQuery } from '@/features/todo/hooks/useTodoListQuey';
 
-interface Props {
-  todoList: Todo[];
-}
+const TodoList = () => {
+  const { data: todoList, isPending, isError, error } = useTodoListQuery();
 
-const TodoList = ({ todoList }: Props) => {
+  if (isPending) {
+    return <div>로딩 중</div>;
+  }
+
+  if (isError) {
+    return <div>{error.message}</div>;
+  }
+
   return (
     <ul className='flex flex-col gap-2'>
       {todoList.map((todo) => {
