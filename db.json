@@ -3,12 +3,14 @@
     {
       "id": 1,
       "content": "json-server을 배워봅시다",
-      "isDone": 1718011200000
+      "isDone": false,
+      "date": 1718011200000
     },
     {
       "id": 2,
       "content": "json-server을 배워봅시다",
-      "isDone": 1718011200000
+      "isDone": false,
+      "date": 1718011200000
     }
   ]
 }
