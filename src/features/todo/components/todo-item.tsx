@@ -4,6 +4,7 @@ import { FaRegTrashCan } from 'react-icons/fa6';
 import { FaPencil } from 'react-icons/fa6';
 import type { Todo } from '@/features/todo/types/todo.type';
 import { deleteTodo } from '../api/deleteTodo';
+import { updateTodo } from '../api/updateTodo';
 
 interface Props {
   todo: Todo;
@@ -14,10 +15,14 @@ const TodoItem = ({ todo }: Props) => {
     await deleteTodo(todo.id);
   };
 
+  const handleUpdate = async () => {
+    await updateTodo({ todoId: todo.id, isDone: !todo.isDone });
+  };
+
   return (
     <li className='flex items-center justify-between rounded-lg px-4 py-2 hover:bg-gray-200'>
       <div className='flex gap-2'>
-        <input type='checkbox' checked={todo.isDone} />
+        <input type='checkbox' checked={todo.isDone} onChange={handleUpdate} />
         <h3>{todo.content}</h3>
       </div>
       <div className='flex gap-3'>
