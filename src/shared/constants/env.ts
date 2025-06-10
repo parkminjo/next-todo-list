@@ -1,3 +1,3 @@
 export const ENV = {
-  JSON_SERVER_URL: process.env.NEXT_PUBLIC_JSON_SERVER_URL ?? '',
+  JSON_SERVER_URL: process.env.NEXT_PUBLIC_JSON_SERVER_URL as string,
 };
