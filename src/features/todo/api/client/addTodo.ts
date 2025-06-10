@@ -1,6 +1,6 @@
 import { ENV } from '@/shared/constants/env';
-import type { Todo } from '@/features/todo/types/todo.type';
 import { METHOD } from '@/shared/constants/http-method';
+import type { Todo } from '@/features/todo/types/todo.type';
 
 export const addTodo = async (todo: Omit<Todo, 'id'>) => {
   const response = await fetch(ENV.JSON_SERVER_URL, {
