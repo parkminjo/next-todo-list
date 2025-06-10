@@ -1,9 +1,8 @@
 'use client';
 
 import { FaRegTrashCan } from 'react-icons/fa6';
-import { FaPencil } from 'react-icons/fa6';
-import { deleteTodo } from '@/features/todo/api/client/delete-todo';
-import { updateTodo } from '@/features/todo/api/client/update-todo';
+import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
+import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
@@ -11,12 +10,15 @@ interface Props {
 }
 
 const TodoItem = ({ todo }: Props) => {
+  const { mutate: deletedTodoMutate } = useDeleteTodoMutation();
+  const { mutate: updateTodoMutate } = useUpdateTodoMutation();
+
   const handleDelete = async () => {
-    await deleteTodo(todo.id);
+    deletedTodoMutate(todo.id);
   };
 
   const handleUpdate = async () => {
-    await updateTodo({ todoId: todo.id, isDone: !todo.isDone });
+    updateTodoMutate({ todoId: todo.id, isDone: !todo.isDone });
   };
 
   return (
@@ -26,9 +28,6 @@ const TodoItem = ({ todo }: Props) => {
         <h3>{todo.content}</h3>
       </div>
       <div className='flex gap-3'>
-        <button aria-label='수정' className='text-gray-500'>
-          <FaPencil />
-        </button>
         <button
           aria-label='삭제'
           onClick={handleDelete}
