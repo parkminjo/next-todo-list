@@ -14,12 +14,40 @@ const TodoList = () => {
     return <div>{error.message}</div>;
   }
 
+  const incompleteTodoList = todoList.filter((todo) => !todo.isDone);
+  const completedTodoList = todoList.filter((todo) => todo.isDone);
+
+  const isCompletedTodoList = completedTodoList.length !== 0;
+
   return (
-    <ul className='flex flex-col gap-2'>
-      {todoList.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} />;
-      })}
-    </ul>
+    <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-2'>
+        <h2 className='text-sm'>
+          미완료
+          <span className='ml-1 text-gray-400'>
+            {incompleteTodoList.length}
+          </span>
+        </h2>
+        <ul className='flex flex-col gap-2'>
+          {incompleteTodoList.map((todo) => {
+            return <TodoItem key={todo.id} todo={todo} />;
+          })}
+        </ul>
+      </div>
+      {isCompletedTodoList && (
+        <div className='flex flex-col gap-2'>
+          <h2 className='text-sm'>
+            완료
+            <span className='ml-1 text-gray-400'>
+              {completedTodoList.length}
+            </span>
+          </h2>
+          {completedTodoList.map((todo) => {
+            return <TodoItem key={todo.id} todo={todo} />;
+          })}
+        </div>
+      )}
+    </div>
   );
 };
 
