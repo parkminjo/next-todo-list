@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 import { deleteTodo } from '@/features/todo/api/client/delete-todo';
 import { QUERY_KEY } from '@/shared/constants/query-key';
 
@@ -9,5 +10,8 @@ export const useDeleteTodoMutation = () => {
     mutationFn: deleteTodo,
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TODO_LIST] }),
+    onError: (error) => {
+      toast.error(error.message);
+    },
   });
 };
