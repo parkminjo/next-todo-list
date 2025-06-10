@@ -2,13 +2,13 @@
   "todoList": [
     {
       "id": 1,
-      "content": "json-server을 배워봅시다",
+      "content": "json-server 배우기",
       "isDone": false,
       "date": 1718011200000
     },
     {
       "id": 2,
-      "content": "json-server을 배워봅시다",
+      "content": "React 배우기",
       "isDone": false,
       "date": 1718011200000
     }
