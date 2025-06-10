@@ -1,16 +1,16 @@
 {
   "todoList": [
     {
-      "id": 1,
+      "id": "1",
       "content": "json-server 배우기",
       "isDone": false,
       "date": 1718011200000
     },
     {
-      "id": 2,
-      "content": "React 배우기",
-      "isDone": false,
-      "date": 1718011200000
+      "id": "9c9f",
+      "content": "밥 주세요",
+      "date": 1749557612129,
+      "isDone": false
     }
   ]
 }

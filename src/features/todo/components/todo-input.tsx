@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { addTodo } from '@/features/todo/api/client/add-todo';
+import { useAddTodoMutation } from '../hooks/use-add-todo-mutation';
 
 const TodoInput = () => {
   const [content, setContent] = useState('');
+  const { mutate: addTodoMutate } = useAddTodoMutation();
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value);
@@ -12,8 +13,7 @@ const TodoInput = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    await addTodo({
+    addTodoMutate({
       content,
       date: new Date().getTime(),
       isDone: false,
