@@ -4,8 +4,13 @@ import { useState } from 'react';
 import { useAddTodoMutation } from '../hooks/use-add-todo-mutation';
 import { toast } from 'react-toastify';
 import { INFO_MESSAGE } from '@/shared/constants/info-message';
+import type { SelectedDate } from '@/features/todo/types/todo.type';
 
-const TodoInput = () => {
+interface Props {
+  selectedDate: SelectedDate;
+}
+
+const TodoInput = ({ selectedDate }: Props) => {
   const [content, setContent] = useState('');
   const { mutate: addTodoMutate } = useAddTodoMutation();
 
@@ -23,13 +28,15 @@ const TodoInput = () => {
       return;
     }
 
-    addTodoMutate({
-      content,
-      date: new Date(),
-      isDone: false,
-    });
+    if (selectedDate) {
+      addTodoMutate({
+        content,
+        date: selectedDate,
+        isDone: false,
+      });
 
-    setContent('');
+      setContent('');
+    }
   };
 
   return (
