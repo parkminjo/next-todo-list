@@ -5,4 +5,4 @@ export interface Todo {
   date: Date;
 }
 
-export type TodayDate = Date | undefined;
+export type SelectedDate = Date | undefined;

@@ -1,19 +1,19 @@
 'use client';
 
 import { Calendar } from '@/shared/ui/calendar';
-import type { TodayDate } from '@/features/todo/types/todo.type';
+import type { SelectedDate } from '@/features/todo/types/todo.type';
 
 interface Props {
-  todayDate: TodayDate;
-  setTodayDate: React.Dispatch<React.SetStateAction<TodayDate>>;
+  selectedDate: SelectedDate;
+  setSelectedDate: React.Dispatch<React.SetStateAction<SelectedDate>>;
 }
 
-const TodoCalendar = ({ todayDate, setTodayDate }: Props) => {
+const TodoCalendar = ({ selectedDate, setSelectedDate }: Props) => {
   return (
     <Calendar
       mode='single'
-      selected={todayDate}
-      onSelect={setTodayDate}
+      selected={selectedDate}
+      onSelect={setSelectedDate}
       captionLayout='dropdown'
       className='w-full flex-1'
     />

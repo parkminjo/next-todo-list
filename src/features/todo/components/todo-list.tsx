@@ -7,13 +7,13 @@ import { getDateHeader } from '@/features/todo/utils/getDateHeader';
 import TodoItem from '@/features/todo/components/todo-item';
 import TodoStatusSelect from '@/features/todo/components/todo-status-select';
 import { TODO_STATUS } from '@/features/todo/constants/todo-status';
-import type { TodayDate } from '@/features/todo/types/todo.type';
+import type { SelectedDate } from '@/features/todo/types/todo.type';
 
 interface Props {
-  todayDate: TodayDate;
+  selectedDate: SelectedDate;
 }
 
-const TodoList = ({ todayDate }: Props) => {
+const TodoList = ({ selectedDate }: Props) => {
   const [todoStatus, setTodoStatus] = useState<keyof typeof TODO_STATUS>(
     TODO_STATUS.ALL,
   );
@@ -43,9 +43,10 @@ const TodoList = ({ todayDate }: Props) => {
     return <div>{error.message}</div>;
   }
 
-  const todayTodoList = todoList.filter((todo) => {
-    if (todayDate) {
-      const isSameDate = getDateHeader(todo.date) === getDateHeader(todayDate);
+  const selectedDateTodoList = todoList.filter((todo) => {
+    if (selectedDate) {
+      const isSameDate =
+        getDateHeader(todo.date) === getDateHeader(selectedDate);
       return isSameDate;
     }
   });
@@ -56,7 +57,7 @@ const TodoList = ({ todayDate }: Props) => {
         <h2 className='text-sm'>
           Today TODO
           <span className='ml-2 rounded-full bg-gray-200 px-2 text-xs text-gray-400'>
-            {todayTodoList.length}
+            {selectedDateTodoList.length}
           </span>
         </h2>
         <TodoStatusSelect
@@ -65,7 +66,7 @@ const TodoList = ({ todayDate }: Props) => {
         />
       </div>
       <ul className='flex flex-col gap-2'>
-        {todayTodoList.map((todo) => {
+        {selectedDateTodoList.map((todo) => {
           return <TodoItem key={todo.id} todo={todo} />;
         })}
       </ul>
