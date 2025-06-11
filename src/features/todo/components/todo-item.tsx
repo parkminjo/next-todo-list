@@ -3,8 +3,8 @@
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
 import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
-import type { Todo } from '@/features/todo/types/todo.type';
 import { Checkbox } from '@/shared/ui/checkbox';
+import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
   todo: Todo;

@@ -25,7 +25,7 @@ const TodoInput = () => {
 
     addTodoMutate({
       content,
-      date: new Date().getTime(),
+      date: new Date(),
       isDone: false,
     });
 
