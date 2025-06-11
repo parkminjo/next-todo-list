@@ -4,7 +4,7 @@ interface Props {
 
 const LayoutWrapper = ({ children }: Props) => {
   return (
-    <div className='mx-auto flex min-h-screen max-w-[1280px] flex-col'>
+    <div className='mx-auto flex min-h-screen max-w-[800px] flex-col'>
       {children}
     </div>
   );
