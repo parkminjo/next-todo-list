@@ -5,22 +5,24 @@ import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
   todoId: Todo['id'];
-  isDone: Todo['isDone'];
+  content?: Todo['content'];
+  isDone?: Todo['isDone'];
 }
 
 /**
  * updateTodo
- * 할 일의 완료 여부를 수정하는 함수
+ * 할 일의 내용과 완료 여부를 수정하는 함수
  * @param {number}  param.todoId
+ * @param {string} param.content 할 일 내용
  * @param {boolean} param.isDone 할 일 완료 여부
  */
-export const updateTodo = async ({ todoId, isDone }: Props) => {
+export const updateTodo = async ({ todoId, content, isDone }: Props) => {
   const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
     method: METHOD.PATCH,
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ isDone }),
+    body: JSON.stringify({ isDone, content }),
   });
 
   if (!response.ok) {
