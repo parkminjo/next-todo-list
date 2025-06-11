@@ -10,7 +10,7 @@ const TodoContainer = () => {
   const [todayDate, setTodayDate] = useState<TodayDate>(new Date());
 
   return (
-    <div className='flex flex-col items-center gap-5 md:flex-row md:items-start md:gap-8'>
+    <div className='flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-8'>
       <TodoCalendar todayDate={todayDate} setTodayDate={setTodayDate} />
       <div className='flex w-full flex-1 flex-col gap-4'>
         <TodoInput />
