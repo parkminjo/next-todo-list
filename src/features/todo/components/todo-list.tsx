@@ -17,12 +17,7 @@ const TodoList = ({ selectedDate }: Props) => {
   const [todoStatus, setTodoStatus] = useState<keyof typeof TODO_STATUS>(
     TODO_STATUS.ALL,
   );
-  const {
-    data: todoList,
-    isPending,
-    isError,
-    error,
-  } = useTodoListQuery(todoStatus);
+  const { data: todoList, isPending, isError, error } = useTodoListQuery();
 
   const handleChangeSelect = (value: keyof typeof TODO_STATUS) => {
     setTodoStatus(value);
@@ -51,13 +46,26 @@ const TodoList = ({ selectedDate }: Props) => {
     }
   });
 
+  const filteredTodoList = selectedDateTodoList.filter((todo) => {
+    console.log(todoStatus);
+    switch (todoStatus) {
+      case TODO_STATUS.COMPLETED:
+        return todo.isDone;
+      case TODO_STATUS.INCOMPLETE:
+        return !todo.isDone;
+      case TODO_STATUS.ALL:
+      default:
+        return true;
+    }
+  });
+
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex items-center justify-between'>
         <h2 className='text-sm'>
           Today TODO
           <span className='ml-2 rounded-full bg-gray-200 px-2 text-xs text-gray-400'>
-            {selectedDateTodoList.length}
+            {filteredTodoList.length}
           </span>
         </h2>
         <TodoStatusSelect
@@ -66,7 +74,7 @@ const TodoList = ({ selectedDate }: Props) => {
         />
       </div>
       <ul className='flex flex-col gap-2'>
-        {selectedDateTodoList.map((todo) => {
+        {filteredTodoList.map((todo) => {
           return <TodoItem key={todo.id} todo={todo} />;
         })}
       </ul>

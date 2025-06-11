@@ -4,10 +4,10 @@ import { STALE_TIME } from '@/shared/constants/time';
 import { getTodoList } from '@/features/todo/api/get-todo-list';
 import { TODO_STATUS } from '@/features/todo/constants/todo-status';
 
-export const useTodoListQuery = (todoStatus: keyof typeof TODO_STATUS) => {
+export const useTodoListQuery = () => {
   return useQuery({
-    queryKey: [QUERY_KEY.TODO_LIST, todoStatus],
-    queryFn: () => getTodoList(todoStatus),
+    queryKey: [QUERY_KEY.TODO_LIST],
+    queryFn: getTodoList,
     staleTime: STALE_TIME.ONE_MINUTE_IN_MS,
   });
 };
