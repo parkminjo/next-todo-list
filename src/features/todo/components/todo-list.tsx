@@ -63,9 +63,11 @@ const TodoList = ({ todayDate }: Props) => {
               {completedTodoList.length}
             </span>
           </h2>
-          {completedTodoList.map((todo) => {
-            return <TodoItem key={todo.id} todo={todo} />;
-          })}
+          <ul className='flex flex-col gap-2'>
+            {completedTodoList.map((todo) => {
+              return <TodoItem key={todo.id} todo={todo} />;
+            })}
+          </ul>
         </div>
       )}
     </div>
