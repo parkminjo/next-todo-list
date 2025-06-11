@@ -8,6 +8,12 @@ interface Props {
   isDone: Todo['isDone'];
 }
 
+/**
+ * updateTodo
+ * 할 일의 완료 여부를 수정하는 함수
+ * @param {number}  param.todoId
+ * @param {boolean} param.isDone 할 일 완료 여부
+ */
 export const updateTodo = async ({ todoId, isDone }: Props) => {
   const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
     method: METHOD.PATCH,
