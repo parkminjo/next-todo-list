@@ -14,13 +14,13 @@ export const getTodoList = async (
   try {
     let query = '';
     if (todoStatus === 'INCOMPLETE') {
-      query = 'isDone=false';
+      query = '?isDone=false';
     }
     if (todoStatus === 'COMPLETED') {
-      query = 'isDone=true';
+      query = '?isDone=true';
     }
 
-    const response = await fetch(`${ENV.JSON_SERVER_URL}?${query}`);
+    const response = await fetch(`${ENV.JSON_SERVER_URL}${query}`);
 
     if (!response.ok) {
       throw new Error(ERROR_MESSAGE.TODO.GET_FAILED);
