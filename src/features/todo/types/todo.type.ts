@@ -4,3 +4,5 @@ export interface Todo {
   isDone: boolean;
   date: Date;
 }
+
+export type TodayDate = Date | undefined;

@@ -3,8 +3,13 @@
 import TodoItem from '@/features/todo/components/todo-item';
 import { useTodoListQuery } from '@/features/todo/hooks/use-todo-list-quey';
 import { Skeleton } from '@/shared/ui/skeleton';
+import type { TodayDate } from '@/features/todo/types/todo.type';
 
-const TodoList = () => {
+interface Props {
+  todayDate: TodayDate;
+}
+
+const TodoList = ({ todayDate }: Props) => {
   const { data: todoList, isPending, isError, error } = useTodoListQuery();
 
   if (isPending) {
@@ -22,8 +27,17 @@ const TodoList = () => {
     return <div>{error.message}</div>;
   }
 
-  const incompleteTodoList = todoList.filter((todo) => !todo.isDone);
-  const completedTodoList = todoList.filter((todo) => todo.isDone);
+  const todayTodoList = todoList.filter((todo) => {
+    if (todayDate) {
+      const isSameDate =
+        new Date(todo.date).toString().slice(0, 15) ===
+        new Date(todayDate).toString().slice(0, 15);
+      return isSameDate;
+    }
+  });
+
+  const incompleteTodoList = todayTodoList.filter((todo) => !todo.isDone);
+  const completedTodoList = todayTodoList.filter((todo) => todo.isDone);
 
   const isCompletedTodoList = completedTodoList.length !== 0;
 
@@ -42,6 +56,7 @@ const TodoList = () => {
           })}
         </ul>
       </div>
+
       {isCompletedTodoList && (
         <div className='flex flex-col gap-2'>
           <h2 className='text-sm'>

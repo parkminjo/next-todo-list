@@ -1,11 +1,14 @@
 'use client';
 
 import { Calendar } from '@/shared/ui/calendar';
-import { useState } from 'react';
+import type { TodayDate } from '@/features/todo/types/todo.type';
 
-const TodoCalendar = () => {
-  const [todayDate, setTodayDate] = useState<Date | undefined>(new Date());
+interface Props {
+  todayDate: TodayDate;
+  setTodayDate: React.Dispatch<React.SetStateAction<TodayDate>>;
+}
 
+const TodoCalendar = ({ todayDate, setTodayDate }: Props) => {
   return (
     <Calendar
       mode='single'
