@@ -34,42 +34,18 @@ const TodoList = ({ todayDate }: Props) => {
       return isSameDate;
     }
   });
-  const incompleteTodoList = todayTodoList.filter((todo) => !todo.isDone);
-  const completedTodoList = todayTodoList.filter((todo) => todo.isDone);
-
-  const isCompletedTodoList = completedTodoList.length !== 0;
 
   return (
-    <div className='flex flex-col gap-4'>
-      <div className='flex flex-col gap-2'>
-        <h2 className='text-sm'>
-          미완료
-          <span className='ml-1 text-gray-400'>
-            {incompleteTodoList.length}
-          </span>
-        </h2>
-        <ul className='flex flex-col gap-2'>
-          {incompleteTodoList.map((todo) => {
-            return <TodoItem key={todo.id} todo={todo} />;
-          })}
-        </ul>
-      </div>
-
-      {isCompletedTodoList && (
-        <div className='flex flex-col gap-2'>
-          <h2 className='text-sm'>
-            완료
-            <span className='ml-1 text-gray-400'>
-              {completedTodoList.length}
-            </span>
-          </h2>
-          <ul className='flex flex-col gap-2'>
-            {completedTodoList.map((todo) => {
-              return <TodoItem key={todo.id} todo={todo} />;
-            })}
-          </ul>
-        </div>
-      )}
+    <div className='flex flex-col gap-2'>
+      <h2 className='text-sm'>
+        Today TODO
+        <span className='ml-1 text-gray-400'>{todayTodoList.length}</span>
+      </h2>
+      <ul className='flex flex-col gap-2'>
+        {todayTodoList.map((todo) => {
+          return <TodoItem key={todo.id} todo={todo} />;
+        })}
+      </ul>
     </div>
   );
 };
