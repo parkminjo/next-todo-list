@@ -47,7 +47,6 @@ const TodoList = ({ selectedDate }: Props) => {
   });
 
   const filteredTodoList = selectedDateTodoList.filter((todo) => {
-    console.log(todoStatus);
     switch (todoStatus) {
       case TODO_STATUS.COMPLETED:
         return todo.isDone;
