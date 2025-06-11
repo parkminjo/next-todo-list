@@ -9,11 +9,15 @@ import type { Todo } from '@/features/todo/types/todo.type';
  * @param {string} todoId
  */
 export const deleteTodo = async (todoId: Todo['id']) => {
-  const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
-    method: METHOD.DELETE,
-  });
+  try {
+    const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
+      method: METHOD.DELETE,
+    });
 
-  if (!response.ok) {
-    throw new Error(ERROR_MESSAGE.TODO.DELETE_FAILED);
+    if (!response.ok) {
+      throw new Error(ERROR_MESSAGE.TODO.DELETE_FAILED);
+    }
+  } catch (error) {
+    throw error;
   }
 };

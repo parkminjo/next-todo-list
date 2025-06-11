@@ -9,15 +9,19 @@ import type { Todo } from '@/features/todo/types/todo.type';
  * @param {object} todo 할 일 정보가 담긴 객체
  */
 export const addTodo = async (todo: Omit<Todo, 'id'>) => {
-  const response = await fetch(ENV.JSON_SERVER_URL, {
-    method: METHOD.POST,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(todo),
-  });
+  try {
+    const response = await fetch(ENV.JSON_SERVER_URL, {
+      method: METHOD.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(todo),
+    });
 
-  if (!response.ok) {
-    throw new Error(ERROR_MESSAGE.TODO.ADD_FAILED);
+    if (!response.ok) {
+      throw new Error(ERROR_MESSAGE.TODO.ADD_FAILED);
+    }
+  } catch (error) {
+    throw error;
   }
 };

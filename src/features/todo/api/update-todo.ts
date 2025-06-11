@@ -17,15 +17,19 @@ interface Props {
  * @param {boolean} param.isDone 할 일 완료 여부
  */
 export const updateTodo = async ({ todoId, content, isDone }: Props) => {
-  const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
-    method: METHOD.PATCH,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ isDone, content }),
-  });
+  try {
+    const response = await fetch(`${ENV.JSON_SERVER_URL}/${todoId}`, {
+      method: METHOD.PATCH,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ isDone, content }),
+    });
 
-  if (!response.ok) {
-    throw new Error(ERROR_MESSAGE.TODO.UPDATE_FAILED);
+    if (!response.ok) {
+      throw new Error(ERROR_MESSAGE.TODO.UPDATE_FAILED);
+    }
+  } catch (error) {
+    throw error;
   }
 };
