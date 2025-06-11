@@ -1,8 +1,9 @@
 'use client';
 
+import { Skeleton } from '@/shared/ui/skeleton';
 import TodoItem from '@/features/todo/components/todo-item';
 import { useTodoListQuery } from '@/features/todo/hooks/use-todo-list-quey';
-import { Skeleton } from '@/shared/ui/skeleton';
+import { getDateHeader } from '@/features/todo/utils/getDateHeader';
 import type { TodayDate } from '@/features/todo/types/todo.type';
 
 interface Props {
@@ -29,13 +30,10 @@ const TodoList = ({ todayDate }: Props) => {
 
   const todayTodoList = todoList.filter((todo) => {
     if (todayDate) {
-      const isSameDate =
-        new Date(todo.date).toString().slice(0, 15) ===
-        new Date(todayDate).toString().slice(0, 15);
+      const isSameDate = getDateHeader(todo.date) === getDateHeader(todayDate);
       return isSameDate;
     }
   });
-
   const incompleteTodoList = todayTodoList.filter((todo) => !todo.isDone);
   const completedTodoList = todayTodoList.filter((todo) => todo.isDone);
 
