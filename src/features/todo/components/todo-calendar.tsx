@@ -15,7 +15,7 @@ const TodoCalendar = ({ todayDate, setTodayDate }: Props) => {
       selected={todayDate}
       onSelect={setTodayDate}
       captionLayout='dropdown'
-      className='[--cell-size:3rem] md:flex-1'
+      className='w-full flex-1'
     />
   );
 };
