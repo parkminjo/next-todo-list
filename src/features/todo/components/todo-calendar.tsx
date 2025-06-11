@@ -9,10 +9,18 @@ interface Props {
 }
 
 const TodoCalendar = ({ selectedDate, setSelectedDate }: Props) => {
+  const localDate =
+    selectedDate &&
+    new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth(),
+      selectedDate.getDate(),
+    );
+
   return (
     <Calendar
       mode='single'
-      selected={selectedDate}
+      selected={localDate}
       onSelect={setSelectedDate}
       captionLayout='dropdown'
       className='w-full flex-1'
