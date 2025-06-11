@@ -1,6 +1,5 @@
 import { ENV } from '@/shared/constants/env';
 import { ERROR_MESSAGE } from '@/shared/constants/error-message';
-import { TODO_STATUS } from '@/features/todo/constants/todo-status';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 /**
