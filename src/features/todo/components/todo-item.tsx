@@ -1,13 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { FaPencil } from 'react-icons/fa6';
+import { Checkbox } from '@/shared/ui/checkbox';
+import { Button } from '@/shared/ui/button';
 import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
 import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
-import { Checkbox } from '@/shared/ui/checkbox';
 import type { Todo } from '@/features/todo/types/todo.type';
-import { useState } from 'react';
-import { Button } from '@/shared/ui/button';
 
 interface Props {
   todo: Todo;
@@ -46,34 +46,50 @@ const TodoItem = ({ todo }: Props) => {
   };
 
   return (
-    <li className='flex h-[40px] items-center justify-between rounded-lg px-4 py-2'>
+    <li>
       <form
         onSubmit={handleClickEditComplete}
-        className='flex items-center gap-3'
+        className='flex h-[40px] items-center justify-between gap-6 py-2'
       >
-        <Checkbox checked={todo.isDone} onCheckedChange={handleClickCheckbox} />
-        <input
-          type='text'
-          value={content}
-          onChange={handleChangeInput}
-          disabled={!isEditMode}
-        />
-      </form>
-
-      {isEditMode ? (
-        <Button type='submit' size='sm' aria-label='수정 완료'>
-          수정 완료
-        </Button>
-      ) : (
-        <div className='flex gap-3 text-gray-500'>
-          <button type='button' aria-label='수정' onClick={handleClickEdit}>
-            <FaPencil />
-          </button>
-          <button type='button' aria-label='삭제' onClick={handleClickDelete}>
-            <FaRegTrashCan />
-          </button>
+        <div className='flex w-full items-center gap-3'>
+          <Checkbox
+            checked={todo.isDone}
+            onCheckedChange={handleClickCheckbox}
+          />
+          <input
+            type='text'
+            value={content}
+            onChange={handleChangeInput}
+            disabled={!isEditMode}
+            className={`w-full bg-transparent outline-none ${isEditMode && 'border-b-2 border-gray-400'}`}
+          />
         </div>
-      )}
+
+        {isEditMode ? (
+          <Button size='sm' aria-label='수정 완료'>
+            수정 완료
+          </Button>
+        ) : (
+          <div className='flex gap-3 text-gray-500'>
+            <button
+              type='button'
+              aria-label='수정'
+              onClick={handleClickEdit}
+              className='hover:text-primary'
+            >
+              <FaPencil />
+            </button>
+            <button
+              type='button'
+              aria-label='삭제'
+              onClick={handleClickDelete}
+              className='hover:text-primary'
+            >
+              <FaRegTrashCan />
+            </button>
+          </div>
+        )}
+      </form>
     </li>
   );
 };
