@@ -39,7 +39,9 @@ const TodoList = ({ todayDate }: Props) => {
     <div className='flex flex-col gap-2'>
       <h2 className='text-sm'>
         Today TODO
-        <span className='ml-1 text-gray-400'>{todayTodoList.length}</span>
+        <span className='ml-2 rounded-full bg-gray-200 px-2 text-xs text-gray-400'>
+          {todayTodoList.length}
+        </span>
       </h2>
       <ul className='flex flex-col gap-2'>
         {todayTodoList.map((todo) => {
