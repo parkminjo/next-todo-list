@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { useTodoListQuery } from '@/features/todo/hooks/use-todo-list-quey';
-import { getDateHeader } from '@/features/todo/utils/getDateHeader';
+import { getDateHeader } from '@/features/todo/utils/get-date-header';
 import TodoItem from '@/features/todo/components/todo-item';
 import TodoStatusSelect from '@/features/todo/components/todo-status-select';
 import { TODO_STATUS } from '@/features/todo/constants/todo-status';
