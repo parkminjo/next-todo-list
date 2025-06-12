@@ -53,7 +53,7 @@ const TodoItem = ({ todo }: Props) => {
       >
         <div className='flex w-full items-center gap-3'>
           <Checkbox
-            checked={todo.isDone}
+            checked={todo.isDone ?? false}
             onCheckedChange={handleClickCheckbox}
           />
           <input
