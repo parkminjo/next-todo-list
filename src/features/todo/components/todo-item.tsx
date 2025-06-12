@@ -20,7 +20,7 @@ const TodoItem = ({ todo }: Props) => {
   const [content, setContent] = useState(todo.content);
   const [isEditMode, setIsEditMode] = useState(false);
 
-  const { mutate: deletedTodoMutate } = useDeleteTodoMutation();
+  const { mutate: deleteTodoMutate } = useDeleteTodoMutation();
   const { mutate: updateTodoMutate } = useUpdateTodoMutation();
 
   const handleClickCheckbox = async () => {
@@ -28,7 +28,7 @@ const TodoItem = ({ todo }: Props) => {
   };
 
   const handleClickDelete = async () => {
-    deletedTodoMutate(todo.id);
+    deleteTodoMutate(todo.id);
   };
 
   const handleClickEdit = () => {
@@ -68,6 +68,7 @@ const TodoItem = ({ todo }: Props) => {
           />
           <input
             type='text'
+            aria-label='할 일 내용'
             value={content}
             onChange={handleChangeInput}
             disabled={!isEditMode}
