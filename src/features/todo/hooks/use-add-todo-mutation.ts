@@ -16,7 +16,7 @@ export const useAddTodoMutation = () => {
       });
 
       queryClient.setQueryData([QUERY_KEY.TODO_LIST], (old: Todo[] = []) => {
-        return [...old, newTodo];
+        return [...old, { ...newTodo, id: Date.now() }];
       });
 
       return { previousTodoList };
