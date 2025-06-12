@@ -1,16 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { FaRegTrashCan } from 'react-icons/fa6';
-import { FaPencil } from 'react-icons/fa6';
 import { Checkbox } from '@/shared/ui/checkbox';
 import { Button } from '@/shared/ui/button';
-import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
-import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
-import type { Todo } from '@/features/todo/types/todo.type';
 import { toast } from 'react-toastify';
 import { INFO_MESSAGE } from '@/shared/constants/info-message';
 import { TOAST_ID } from '@/shared/constants/toast-id';
+import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
+import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
+import TodoItemActionButtons from '@/features/todo/components/todo-item-action-buttons';
+import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
   todo: Todo;
@@ -81,24 +80,10 @@ const TodoItem = ({ todo }: Props) => {
             수정 완료
           </Button>
         ) : (
-          <div className='flex gap-3 text-gray-500'>
-            <button
-              type='button'
-              aria-label='수정'
-              onClick={handleClickEdit}
-              className='hover:text-primary'
-            >
-              <FaPencil />
-            </button>
-            <button
-              type='button'
-              aria-label='삭제'
-              onClick={handleClickDelete}
-              className='hover:text-primary'
-            >
-              <FaRegTrashCan />
-            </button>
-          </div>
+          <TodoItemActionButtons
+            onClickDelete={handleClickDelete}
+            onClickEdit={handleClickEdit}
+          />
         )}
       </form>
     </li>
