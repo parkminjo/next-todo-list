@@ -5,6 +5,7 @@ import { useAddTodoMutation } from '../hooks/use-add-todo-mutation';
 import { toast } from 'react-toastify';
 import { INFO_MESSAGE } from '@/shared/constants/info-message';
 import type { SelectedDate } from '@/features/todo/types/todo.type';
+import { TOAST_ID } from '@/shared/constants/toast-id';
 
 interface Props {
   selectedDate: SelectedDate;
@@ -21,9 +22,9 @@ const TodoInput = ({ selectedDate }: Props) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (content === '') {
+    if (content.trim() === '') {
       toast.info(INFO_MESSAGE.TODO.EMPTY_INPUT, {
-        toastId: 'EMPTY_INPUT',
+        toastId: TOAST_ID.EMPTY_INPUT,
       });
       return;
     }
