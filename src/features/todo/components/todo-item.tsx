@@ -8,6 +8,9 @@ import { Button } from '@/shared/ui/button';
 import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
 import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
 import type { Todo } from '@/features/todo/types/todo.type';
+import { toast } from 'react-toastify';
+import { INFO_MESSAGE } from '@/shared/constants/info-message';
+import { TOAST_ID } from '@/shared/constants/toast-id';
 
 interface Props {
   todo: Todo;
@@ -36,6 +39,13 @@ const TodoItem = ({ todo }: Props) => {
     event: React.MouseEvent<HTMLFormElement, MouseEvent>,
   ) => {
     event.preventDefault();
+
+    if (content.trim() === '') {
+      toast.info(INFO_MESSAGE.TODO.EMPTY_INPUT, {
+        toastId: TOAST_ID.EMPTY_INPUT,
+      });
+      return;
+    }
 
     setIsEditMode(false);
     updateTodoMutate({ todoId: todo.id, content });
