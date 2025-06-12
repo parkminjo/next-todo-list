@@ -5,7 +5,6 @@ import ToastProvider from '@/provider/toast-provider';
 import LayoutWrapper from '@/shared/layout/layout-wrapper';
 import Header from '@/shared/layout/header';
 import Footer from '@/shared/layout/footer';
-
 import type { Metadata } from 'next';
 
 const pretendard = localFont({
