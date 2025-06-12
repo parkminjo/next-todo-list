@@ -1,17 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoCalendar from '@/features/todo/components/todo-calendar';
 import TodoInput from '@/features/todo/components/todo-input';
 import TodoList from '@/features/todo/components/todo-list';
 import type { SelectedDate } from '@/features/todo/types/todo.type';
 
-interface Props {
-  initialDate: Date;
-}
+const TodoContainer = () => {
+  const [selectedDate, setSelectedDate] = useState<SelectedDate>();
 
-const TodoContainer = ({ initialDate }: Props) => {
-  const [selectedDate, setSelectedDate] = useState<SelectedDate>(initialDate);
+  useEffect(() => {
+    setSelectedDate(new Date());
+  }, []);
 
   return (
     <div className='flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-8'>
