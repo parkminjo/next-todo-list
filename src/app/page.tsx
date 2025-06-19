@@ -1,7 +1,7 @@
-import TodoContainer from '@/features/todo/components/todo-container';
+import TodoManagement from '@/features/todo/components/todo-management';
 
 const Home = () => {
-  return <TodoContainer />;
+  return <TodoManagement />;
 };
 
 export default Home;
