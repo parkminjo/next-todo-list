@@ -38,9 +38,6 @@ const TodoList = ({ selectedDate }: Props) => {
     return <div>{error.message}</div>;
   }
 
-  // 기존에는 서버에 필터링된 데이터를 불러오도록 구현했는데,
-  // 카테고리를 선택할 때 서버에 요청에 보내기 때문에 로딩 UI가 보이는 문제가 있었습니다.
-  // 사용자 경험 측면에서 클라이언트에서 필터링해주는 것이 사용자 경험에서 더 좋을 것 같다는 판단을 하였습니다.
   const selectedDateTodoList = todoList.filter((todo) => {
     if (selectedDate) {
       const isSameDate =
