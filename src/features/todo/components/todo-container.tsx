@@ -6,7 +6,7 @@ import TodoInput from '@/features/todo/components/todo-input';
 import TodoList from '@/features/todo/components/todo-list';
 import type { SelectedDate } from '@/features/todo/types/todo.type';
 
-const TodoManagement = () => {
+const TodoContainer = () => {
   const [selectedDate, setSelectedDate] = useState<SelectedDate>();
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const TodoManagement = () => {
   );
 };
 
-export default TodoManagement;
+export default TodoContainer;
