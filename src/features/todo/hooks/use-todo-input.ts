@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { TOAST_ID } from '@/shared/constants/toast-id';
 import { INFO_MESSAGE } from '@/shared/constants/info-message';
-import { useAddTodoMutation } from '@/features/todo/hooks/use-add-todo-mutation';
+import { useAddTodoMutation } from './use-todo-mutation';
 import type { SelectedDate } from '@/features/todo/types/todo.type';
 
 export const useTodoInput = (selectedDate: SelectedDate) => {

@@ -6,9 +6,11 @@ import { Button } from '@/shared/ui/button';
 import { toast } from 'react-toastify';
 import { INFO_MESSAGE } from '@/shared/constants/info-message';
 import { TOAST_ID } from '@/shared/constants/toast-id';
-import { useDeleteTodoMutation } from '@/features/todo/hooks/use-delete-todo-mutation';
-import { useUpdateTodoMutation } from '@/features/todo/hooks/use-update-todo-mutation';
 import TodoItemActionButtons from '@/features/todo/components/todo-item-action-buttons';
+import {
+  useDeleteTodoMutation,
+  useUpdateTodoMutation,
+} from '../hooks/use-todo-mutation';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
