@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import TodoCalendar from '@/features/todo/components/todo-calendar';
 import TodoInput from '@/features/todo/components/todo-input';
 import TodoList from '@/features/todo/components/todo-list';
