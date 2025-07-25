@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { updateTodo } from '@/features/todo/api/update-todo';
 import { QUERY_KEY } from '@/shared/constants/query-key';
+import { updateTodo } from '../api/todo.api';
 import type { Todo } from '@/features/todo/types/todo.type';
 
 interface Props {
