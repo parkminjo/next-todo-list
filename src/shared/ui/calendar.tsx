@@ -7,10 +7,10 @@ import {
   ChevronRightIcon,
 } from 'lucide-react';
 import { DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
-import { ko } from 'date-fns/locale';
 
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from '@/shared/ui/button';
+import { ko } from 'date-fns/locale';
 
 function Calendar({
   className,
@@ -189,7 +189,7 @@ function CalendarDayButton({
       ref={ref}
       variant='ghost'
       size='icon'
-      data-day={day.date.toLocaleDateString()}
+      data-day={day.date.toLocaleDateString('en-CA')}
       data-selected-single={
         modifiers.selected &&
         !modifiers.range_start &&

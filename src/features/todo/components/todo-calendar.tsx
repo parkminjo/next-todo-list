@@ -14,7 +14,6 @@ const TodoCalendar = ({ selectedDate, setSelectedDate }: Props) => {
       mode='single'
       selected={selectedDate}
       onSelect={setSelectedDate}
-      captionLayout='dropdown'
       className='w-full flex-1'
     />
   );
