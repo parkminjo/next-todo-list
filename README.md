@@ -1,6 +1,6 @@
 # Next.js TodoList 앱 구현 과제
 ### 작업 기간
-25.06.10 ~ 25.06.12
+25.07.25 ~ 25.07.27
 
 ### 배포 주소
 [DODO 배포 사이트](https://next-todo-list-hazel.vercel.app/)
